@@ -217,3 +217,35 @@ body {
  * to prevent unintended layout issues on certain screen widths.
  */
 
+/* ===========================================================================
+ * Custom desktop backgrounds (2025-09-05)
+ *
+ * The user requested to replace the default gradient backgrounds on the
+ * login screen and AI core selection screen with a specific image. To avoid
+ * impacting the mobile experience these changes are only applied on larger
+ * viewports (≥640 px). We override the entire background on both elements
+ * and hide the animated overlay (#dragon-tech-bg) so the new artwork is
+ * clearly visible.
+ *
+ * Note: the image file (`background.png`) must reside in the same folder
+ * as index.html and style.css. If you move it elsewhere, update the URL
+ * accordingly.
+ */
+@media (min-width: 640px) {
+  /* Apply the custom image to the login screen. Use `!important`
+     to ensure it overrides earlier gradient definitions. */
+  #authScreen {
+    background: url('background.png') center/cover no-repeat !important;
+  }
+  /* Hide the technological dragon overlay on desktop to avoid obscuring
+     the custom background. */
+  #dragon-tech-bg {
+    display: none !important;
+  }
+  /* Apply the same background to the AI core selection screen. This
+     container covers the entire viewport when visible. */
+  #aiCoreSelectionScreen {
+    background: url('background.png') center/cover no-repeat !important;
+  }
+}
+
